@@ -36,6 +36,7 @@ namespace NigmetAli.Classes
             Property(x => x.Password).HasColumnName("Password").IsRequired();
             Property(x => x.EMail).HasColumnName("EMail").IsRequired();
             Property(x => x.Picture).HasColumnName("Picture").IsRequired();
+           
         }
     }
 }

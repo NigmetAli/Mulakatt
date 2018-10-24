@@ -25,6 +25,7 @@ namespace NigmetAli.Classes
             modelBuilder.Configurations.Add(new QuestionMapping());
             modelBuilder.Configurations.Add(new MemberMapping());
             modelBuilder.Configurations.Add(new CommentMapping());
+            modelBuilder.Entity<Member>().HasIndex(p => new { p.EMail }).IsUnique();
         }
 
     }

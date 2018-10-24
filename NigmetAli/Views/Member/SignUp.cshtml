@@ -5,19 +5,14 @@
 
 <div class="form-row">
     <div class="form-control">
-        <form method="post" action="/Member/SignUp" role="form" class="md-form" enctype="multipart/form-data">
+        <form method="post" action="/Member/SignUp" role="form"  enctype="multipart/form-data">
             <label>User Name:</label><input type="text" name="UserName" />
             <label>Password:</label><input type="password" name="Password" />
             <label>E-Mail:</label><input type="email" name="Email" />
-                <div class="file-field">
-                    <div class="btn btn-primary btn-sm float-left">
-                        <span>Choose file</span>
-                        <input type="file" name="Picture">
-                    </div>
-                    <div class="file-path-wrapper">
-                        <input class="file-path validate" type="text" placeholder="Upload your file">
-                    </div>
-                </div>
+            <div class="form-group">
+                <label for="exampleFormControlFile1">Example file input</label>
+                <input type="file" class="form-control-file" name="Picture" id="exampleFormControlFile1">
+            </div>
             <input type="submit" value="Sign Up" />
         </form>
     </div>

@@ -162,6 +162,14 @@
     <Compile Include="Migrations\201810241021116_updateTable.Designer.cs">
       <DependentUpon>201810241021116_updateTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201810241301426_member.cs" />
+    <Compile Include="Migrations\201810241301426_member.Designer.cs">
+      <DependentUpon>201810241301426_member.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810241325420_uniqueEmail.cs" />
+    <Compile Include="Migrations\201810241325420_uniqueEmail.Designer.cs">
+      <DependentUpon>201810241325420_uniqueEmail.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -192,6 +200,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Pictures\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201810240726505_initial.resx">
@@ -199,6 +208,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201810241021116_updateTable.resx">
       <DependentUpon>201810241021116_updateTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810241301426_member.resx">
+      <DependentUpon>201810241301426_member.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810241325420_uniqueEmail.resx">
+      <DependentUpon>201810241325420_uniqueEmail.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
