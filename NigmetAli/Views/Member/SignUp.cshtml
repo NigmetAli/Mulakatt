@@ -1,10 +1,17 @@
 ﻿@{
     ViewBag.Title = "Sign Up";
 
-    if(ViewBag.RegisterState != null)
+    if (ViewBag.msg == true)
     {
         <script>
-            window.alert('@ViewBag.RegisterState');
+            window.alert('Sent an email to your email address with confirmation link. please check your unbox!');
+        </script>
+    }
+
+    if (ViewBag.msg == false)
+    {
+        <script>
+            window.alert('The e-mail you typed is already in use!');
         </script>
     }
 }
@@ -48,7 +55,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <a href="#" class="close"data-dismiss="modal">&times;</a>
+                <a href="#" class="close" data-dismiss="modal">&times;</a>
                 <h4>Registration Form</h4>
             </div>
             <div class="modal-body">
@@ -85,7 +92,7 @@
             </div>
         </div>
     </div>
-</div> 
+</div>
 
 <script>
     function SignUp() {
@@ -93,17 +100,17 @@
     }
 </script>
 @*<div class="form-row">
-    <div class="form-control">
-        <form method="post" action="/Member/SignUp" role="form"  enctype="multipart/form-data">
-            <label>User Name:</label><input type="text" name="UserName" />
-            <label>Password:</label><input type="password" name="Password" />
-            <label>E-Mail:</label><input type="email" name="Email" />
-            <div class="form-group">
-                <label for="exampleFormControlFile1">Example file input</label>
-                <input type="file" class="form-control-file" name="Picture" id="exampleFormControlFile1">
-            </div>
-            <input type="submit" value="Sign Up" />
-        </form>
-    </div>
-</div>*@
+        <div class="form-control">
+            <form method="post" action="/Member/SignUp" role="form"  enctype="multipart/form-data">
+                <label>User Name:</label><input type="text" name="UserName" />
+                <label>Password:</label><input type="password" name="Password" />
+                <label>E-Mail:</label><input type="email" name="Email" />
+                <div class="form-group">
+                    <label for="exampleFormControlFile1">Example file input</label>
+                    <input type="file" class="form-control-file" name="Picture" id="exampleFormControlFile1">
+                </div>
+                <input type="submit" value="Sign Up" />
+            </form>
+        </div>
+    </div>*@
 

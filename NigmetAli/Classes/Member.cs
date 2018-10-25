@@ -20,6 +20,7 @@ namespace NigmetAli.Classes
         public string Password { get; set; }
         public string EMail { get; set; }
         public string Picture { get; set; }
+        public bool IsValid { get; set; }
 
         public virtual ICollection<Question> Questions { get; set; }
         public virtual ICollection<Comment> Comments { get; set; }
@@ -36,7 +37,8 @@ namespace NigmetAli.Classes
             Property(x => x.Password).HasColumnName("Password").IsRequired();
             Property(x => x.EMail).HasColumnName("EMail").IsRequired();
             Property(x => x.Picture).HasColumnName("Picture").IsRequired();
-           
+            Property(x => x.IsValid).HasColumnName("IsValid").IsRequired();
+
         }
     }
 }

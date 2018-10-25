@@ -118,6 +118,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="EmailTemplate\Text.cshtml" />
     <None Include="Scripts\jquery-3.0.0-vsdoc.js" />
     <Content Include="Scripts\jquery-3.0.0.js" />
     <Content Include="Scripts\jquery-3.0.0.min.js" />
@@ -166,6 +167,14 @@
     <Compile Include="Migrations\201810251015588_dropUniqueEmail.Designer.cs">
       <DependentUpon>201810251015588_dropUniqueEmail.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201810251136478_validation.cs" />
+    <Compile Include="Migrations\201810251136478_validation.Designer.cs">
+      <DependentUpon>201810251136478_validation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810251139374_validationcorrect.cs" />
+    <Compile Include="Migrations\201810251139374_validationcorrect.Designer.cs">
+      <DependentUpon>201810251139374_validationcorrect.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -186,6 +195,7 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Member\SignUp.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Member\Confirm.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -213,6 +223,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201810251015588_dropUniqueEmail.resx">
       <DependentUpon>201810251015588_dropUniqueEmail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810251136478_validation.resx">
+      <DependentUpon>201810251136478_validation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810251139374_validationcorrect.resx">
+      <DependentUpon>201810251139374_validationcorrect.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
