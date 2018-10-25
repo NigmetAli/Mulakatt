@@ -34,19 +34,32 @@ namespace NigmetAli.Controllers
             string name = "/Pictures/" + Guid.NewGuid() + Path.GetExtension(Picture.FileName);
             Bitmap bmp = new Bitmap(img, width, height);
             bmp.Save(Server.MapPath(name));
+
+
             using (CFContext context = new CFContext())
             {
-                Member m = new Member();
-                m.userName = incomeMember.userName;
-                m.EMail = incomeMember.EMail;
-                m.Password = incomeMember.Password;
-                m.Picture = name;
+                if (!context.Members.Any(x => x.EMail == incomeMember.EMail))
+                {
 
-                context.Members.Add(m);
-                context.SaveChanges();
+                    Member m = new Member();
+                    m.userName = incomeMember.userName;
+                    m.EMail = incomeMember.EMail;
+                    m.Password = incomeMember.Password;
+                    m.Picture = name;
+
+                    context.Members.Add(m);
+                    context.SaveChanges();
+
+                    ViewBag.RegisterState = "Registration Successfull!";
+                    return View();
+                }
+                else
+                {
+                    ViewBag.RegisterState = "The e-mail you typed is already in use!";
+                    return View();
+                }
             }
 
-            return RedirectToAction("Index", "Home");
         }
     }
 }
