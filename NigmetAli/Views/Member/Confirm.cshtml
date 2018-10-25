@@ -1,28 +1,38 @@
 ﻿
 @{
-    Layout = null;
+    ViewBag.Title = "Confirm";
 }
+
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script src="~/Scripts/modernizr-2.6.2.js"></script>
+<script src="~/Scripts/modernizr-2.8.3.js"></script>
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
 
 <br /><br />
 <div class="alert alert-warning" id="previous">
     <strong>Confirm Your Account</strong>
-    <input type="submit" class="btn btn-warning" value="Confirm" onclick="Verified()" />
+    <input type="submit" class="btn btn-warning verified" value="Confirm" id="Verified" />
 </div>
 <div class="alert alert-success" id="after" style="display:none">
     <strong><span class="glyphicon glyphicon-ok"></span> Your Account Has Been Activated </strong>
 </div>
 
-<script>
-    function Verified() {
-        $.ajax({
-            type: "post",
-            url: "/Member/RegisterConfirm",
-            data{ 'registID': '@ViewBag.regID' },
-            success: function (msg) {
-                $("#previous").hide();
-                $("#after").show();
-                alert(msg);
-            }
+@section scripts{
+    <script>
+        $(".verified").click(function () {
+            $.ajax({
+                type: "post",
+                url: "/Member/RegisterConfirm",
+                data:{ regId: @ViewBag.regID },
+                success: function (msg) {
+                    $("#previous").hide();
+                    $("#after").show();
+                    alert(msg);
+                }
+            });
         });
-    }
-</script>
+
+    </script>
+}
+

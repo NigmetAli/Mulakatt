@@ -51,7 +51,7 @@ namespace NigmetAli.Controllers
 
                 context.Members.Add(m);
                 context.SaveChanges();
-                BuildEmailTemplate(incomeMember.Id);
+                BuildEmailTemplate(m.Id);
                 ViewBag.msg = true;
                 return View();
             }
@@ -62,9 +62,9 @@ namespace NigmetAli.Controllers
             }
         }
 
-        public ActionResult Confirm(int registID)
+        public ActionResult Confirm(int regId)
         {
-            ViewBag.regID = registID;
+            ViewBag.regID = regId;
             return View();
         }
         public JsonResult RegisterConfirm(int regId)
