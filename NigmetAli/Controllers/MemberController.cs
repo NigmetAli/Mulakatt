@@ -129,11 +129,40 @@ namespace NigmetAli.Controllers
             {
                 client.Send(mail);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
             }
         }
 
+        public ActionResult AskQuestion()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult AskQuestion(Question question)
+        {
+            context = new CFContext();
+            question.MemberId = 92;
+            question.HasTrue = false;
+            question.Score = 0;
+
+            string[] words = question.Tags.Split(Convert.ToChar(" ")); //splitted tags
+            Tag tag = new Tag();
+            foreach (string word in words)
+            {
+                if (!context.Tags.Any(x=>x.QTags==word))
+                {
+                    tag.QTags = word;
+             
+                    context.Tags.Add(tag);
+                    context.SaveChanges();
+                }
+            }
+            context.Questions.Add(question);
+            context.SaveChanges();
+            return View();
+        }
     }
 }

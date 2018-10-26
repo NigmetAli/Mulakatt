@@ -10,26 +10,31 @@
     <script src="~/Scripts/bootstrap.min.js"></script>
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
     <script src="~/Scripts/modernizr-2.8.3.js"></script>
+    @RenderSection("head", required: false)
 </head>
 <body>
-    <nav class="navbar navbar-inverse">
+    <nav class="navbar navbar-default">
         <div class="container-fluid">
-            <div class="navbar-header">
-                <a href="#" class="navbar-brand">
-                    NullPointer.com
-                </a>
+            <div class="navbar-header navbar-nav">
+                <a href="/Home/Index" class="nav navbar-left"><h3>NullPointer.Com</h3></a>
             </div>
-            <form id="search" action="/Home/Search">
-                <div class="form-group">
-                    <input class="form-control" placeholder="Search" />
+            <div class="nav nav-divider col-md-4">
+                <form class="navbar-form navbar-left " id="search" action="/Home/Search">
+                    <div class="form-group">
+                        <input class="form-control" placeholder="Search" />
+                    </div>
+                    <div class="navbar-form form-control">
+                        <button class="btn btn-success glyphicon glyphicon-search" type="submit"></button>
+                    </div>
+                </form>
+                <div class="nav navbar-brand ask">
+                    <span class="btn-group"><i class="glyphicon glyphicon-question-sign"></i></span>
+                    <a href="/Member/AskQuestion" class="btn btn-warning">Ask Question</a>
                 </div>
-            </form>
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                    @Html.ActionLink("Sign Up", "SignUp", "Member");
-                </li>
-                <li>
-                    @Html.ActionLink("Login", "Login", "Member");
+            </div>
+            <ul class="nav navbar-right navbar-brand" >
+                <li class="list-group">
+                    <a href="/Member/SignUp" class="btn btn-info">Login/Signup</a>
                 </li>
             </ul>
         </div>
@@ -39,7 +44,13 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12 col-md-offset-4">
+                        <p>&copy; @DateTime.Now.Year - Could Not Be Developed By Niğmet Ali 😓</p>
+                    </div>
+                </div>
+            </div>
         </footer>
     </div>
 

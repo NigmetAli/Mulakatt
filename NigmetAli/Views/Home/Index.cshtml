@@ -1,8 +1,96 @@
-﻿
+﻿@using NigmetAli.Classes
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+@model List<Question>
 
+<div class="container">
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-2">
+            <div class="row">
+                <div class="col-md-6">
+                    <ul class="list-group">
+                        @foreach (Question question in Model)
+                        {
+                            <li class="list-group-item">
+                                score
+                            </li>
+                            <li class="list-group-item">
+
+                            </li>
+                        }
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <ul class="list-group">
+                        @foreach (Question question in Model)
+                        {
+                            <li class="list-group-item">
+                                Answer Count
+                            </li>
+                            <li class="list-group-item">
+
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <ul class="list-group">
+                            @foreach (Question question in Model)
+                            {
+                                <li class="list-group-item">
+                                    @question.Description
+                                </li>
+                                <li class="list-group-item">
+                                    @{
+                                        string[] words = question.Tags.Split(Convert.ToChar(" "));
+                                        foreach (string word in words)
+                                        {
+                                            <a href="#" class="btn btn-info">@word </a>
+                                        }
+                                    }
+
+                                </li>
+                                <br />
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@*<ul class="list-group">
+        <li class="list-group-item list-group-item-info">
+            <a href="#" class="disabled">Tags</a>
+        </li>
+        <li class="list-group-item list-group-item-info">
+            <a href="#" class="disabled">Users</a>
+        </li>
+    </ul>*@
+
+@*<ul class="col-md-3 list-group">
+        <ul>
+            <li class="list-group-item">
+
+            </li>
+        </ul>
+        <ul>
+            <li class="list-group-item">
+                falan
+            </li>
+        </ul>
+    </ul>
+    <ul class="col-md-9 list-group"></ul>*@

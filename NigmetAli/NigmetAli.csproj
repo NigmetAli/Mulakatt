@@ -143,6 +143,7 @@
     <Compile Include="Classes\Comment.cs" />
     <Compile Include="Classes\Member.cs" />
     <Compile Include="Classes\Question.cs" />
+    <Compile Include="Classes\Tag.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MemberController.cs" />
     <Compile Include="Global.asax.cs">
@@ -176,6 +177,18 @@
     <Compile Include="Migrations\201810251139374_validationcorrect.Designer.cs">
       <DependentUpon>201810251139374_validationcorrect.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201810260849167_TagsTableAdded.cs" />
+    <Compile Include="Migrations\201810260849167_TagsTableAdded.Designer.cs">
+      <DependentUpon>201810260849167_TagsTableAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810260852584_TagsTableAdded2.cs" />
+    <Compile Include="Migrations\201810260852584_TagsTableAdded2.Designer.cs">
+      <DependentUpon>201810260852584_TagsTableAdded2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810261029333_TagsTableAdded3.cs" />
+    <Compile Include="Migrations\201810261029333_TagsTableAdded3.Designer.cs">
+      <DependentUpon>201810261029333_TagsTableAdded3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -198,6 +211,7 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Member\Confirm.cshtml" />
+    <Content Include="Views\Member\AskQuestion.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -231,6 +245,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201810251139374_validationcorrect.resx">
       <DependentUpon>201810251139374_validationcorrect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810260849167_TagsTableAdded.resx">
+      <DependentUpon>201810260849167_TagsTableAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810260852584_TagsTableAdded2.resx">
+      <DependentUpon>201810260852584_TagsTableAdded2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810261029333_TagsTableAdded3.resx">
+      <DependentUpon>201810261029333_TagsTableAdded3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

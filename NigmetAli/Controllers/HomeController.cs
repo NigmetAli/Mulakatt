@@ -9,10 +9,16 @@ namespace NigmetAli.Controllers
 {
     public class HomeController : Controller
     {
+        CFContext context = new CFContext();
         // GET: Home
         public ActionResult Index()
         {
-            return View();
+            List<Question> question = context.Questions.ToList();
+
+            List<Answer> answers = context.Answers.ToList();
+            ViewBag.Answers = answers;
+
+            return View(question);
         }
 
 

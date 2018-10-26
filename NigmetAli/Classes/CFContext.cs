@@ -17,6 +17,7 @@ namespace NigmetAli.Classes
         public DbSet<Question> Questions { get; set; }
         public DbSet<Answer> Answers { get; set; }
         public DbSet<Comment> Comments { get; set; }
+        public DbSet<Tag> Tags { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -25,6 +26,7 @@ namespace NigmetAli.Classes
             modelBuilder.Configurations.Add(new QuestionMapping());
             modelBuilder.Configurations.Add(new MemberMapping());
             modelBuilder.Configurations.Add(new CommentMapping());
+            modelBuilder.Configurations.Add(new TagMapping());
         }
 
     }
