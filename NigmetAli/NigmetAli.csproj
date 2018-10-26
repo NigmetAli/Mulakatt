@@ -146,6 +146,7 @@
     <Compile Include="Classes\Tag.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MemberController.cs" />
+    <Compile Include="Controllers\QuAnCoTaController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -212,6 +213,7 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Member\Confirm.cshtml" />
     <Content Include="Views\Member\AskQuestion.cshtml" />
+    <Content Include="Views\QuAnCoTa\Tag.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

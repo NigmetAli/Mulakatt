@@ -1,9 +1,9 @@
-﻿@using NigmetAli.Classes
-
+﻿
 @{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Tag";
 }
+
+@using NigmetAli.Classes
 
 @model List<Question>
 
@@ -66,13 +66,10 @@
                                         string[] words = question.Tags.Split(Convert.ToChar(" "));
                                         foreach (string word in words)
                                         {
-                                            if (word != "")
-                                            {
-                                                <form method="post" action="/QuAnCoTa/Tag" role="form" class="list-group-item">
-                                                    <input type="hidden" name="TagName" value="@word" />
-                                                    <button type="submit" class="btn btn-info">@word </button>
-                                                </form>
-                                            }
+                                            <form method="post" action="/QuAnCoTa/Tag" role="form" class="list-group-item">
+                                                <input type="hidden" name="TagName" value="@word" />
+                                                <button type="submit" class="btn btn-info">@word </button>
+                                            </form>
                                         }
                                     }
 
@@ -86,3 +83,4 @@
         </div>
     </div>
 </div>
+
