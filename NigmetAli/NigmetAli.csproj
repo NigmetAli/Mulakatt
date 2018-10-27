@@ -214,6 +214,7 @@
     <Content Include="Views\Member\Confirm.cshtml" />
     <Content Include="Views\Member\AskQuestion.cshtml" />
     <Content Include="Views\QuAnCoTa\Tag.cshtml" />
+    <Content Include="Views\QuAnCoTa\TagList.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

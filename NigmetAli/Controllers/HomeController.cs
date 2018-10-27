@@ -21,8 +21,6 @@ namespace NigmetAli.Controllers
             return View(question);
         }
 
-
-
     }
 }
 

@@ -61,18 +61,17 @@
                                     @question.Description
                                 </li>
                                 <li class="list-group-item">
-
                                     @{
                                         string[] words = question.Tags.Split(Convert.ToChar(" "));
                                         foreach (string word in words)
                                         {
-                                            <form method="post" action="/QuAnCoTa/Tag" role="form" class="list-group-item">
-                                                <input type="hidden" name="TagName" value="@word" />
-                                                <button type="submit" class="btn btn-info">@word </button>
-                                            </form>
+                                            if (word != "")
+                                            {
+                                                var url = HttpUtility.UrlEncode(word);
+                                                <a href="/QuAnCoTa/Tag?TName=@url" name="TagName" class="btn btn-info">@word</a>
+                                            }
                                         }
                                     }
-
                                 </li>
                                 <br />
                             }

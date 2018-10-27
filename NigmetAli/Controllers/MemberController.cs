@@ -144,10 +144,9 @@ namespace NigmetAli.Controllers
         public ActionResult AskQuestion(Question question)
         {
             context = new CFContext();
-            question.MemberId = 7;
+            question.MemberId = 86;
             question.HasTrue = false;
             question.Score = 0;
-            string QTagsNoSpace = "";
             string[] words = question.Tags.Split(Convert.ToChar(" ")); //splitted tags
             Tag tag = new Tag();
             foreach (string word in words)
@@ -155,7 +154,7 @@ namespace NigmetAli.Controllers
                 if (!context.Tags.Any(x=>x.QTags==word))
                 {
                     tag.QTags = word.Trim();
-             
+                    
                     context.Tags.Add(tag);
                     context.SaveChanges();
                 }

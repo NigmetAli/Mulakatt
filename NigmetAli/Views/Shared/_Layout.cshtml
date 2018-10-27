@@ -16,7 +16,7 @@
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header navbar-nav">
-                <a href="/Home/Index" class="nav navbar-left"><h3>NullPointer.Com</h3></a>
+                <a href="/Home/Index" class="nav navbar-left"><h3><strong>NullPointer.Com</strong></h3></a>
             </div>
             <div class="nav nav-divider col-md-4">
                 <form class="navbar-form navbar-left " id="search" action="/Home/Search">
@@ -28,10 +28,10 @@
                     </div>
                 </form>
                 <div class="nav navbar-brand ask">
-                    <a href="/Member/AskQuestion" class="btn btn-warning">Ask Question</a>
+                    <a href="/Member/AskQuestion" class="btn btn-info">Ask Question</a>
                 </div>
             </div>
-            <ul class="nav navbar-right navbar-brand" >
+            <ul class="nav navbar-right navbar-brand">
                 <li class="list-group">
                     <a href="/Member/SignUp" class="btn btn-info">Login/Signup</a>
                 </li>
@@ -40,17 +40,27 @@
     </nav>
 
     <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-12 col-md-offset-4">
-                        <p>&copy; @DateTime.Now.Year - Could Not Be Developed By Niğmet Ali 😓</p>
+        <div class="container col-md-2">
+            <div class="right">
+                <ul class="list-group right">
+                    <li class="list-group-item right text-right" style="border:hidden"><a href="/Home/Index" class="text-capitalize alert-link" style="cursor:pointer">NullPointer</a></li>
+                    <li class="list-group-item right text-right" style="border:hidden"><a href="/QuAnCoTa/TagList" class="text-capitalize alert-link" style="cursor:pointer">Tags</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container col-md-10">
+            @RenderBody()
+            <hr />
+            <footer>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12 col-md-offset-4">
+                            <p>&copy; @DateTime.Now.Year - Could Not Be Developed By Niğmet Ali 😓</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </footer>
+            </footer>
+        </div>
     </div>
 
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />

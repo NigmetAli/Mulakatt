@@ -9,25 +9,41 @@ namespace NigmetAli.Controllers
 {
     public class QuAnCoTaController : Controller
     {
-        // GET: QuAnCoTa
         public ActionResult Index()
         {
             return View();
         }
 
-        [HttpPost]
-        public ActionResult Tag(string TagName)
+        public ActionResult Tag()
         {
-            CFContext context = new CFContext();
+            using (CFContext context = new CFContext())
+            {
+                List<Answer> answers = context.Answers.ToList();
+                ViewBag.Answers = answers;
 
-            List<Answer> answers = context.Answers.ToList();
-            ViewBag.Answers = answers;
+                string TagName = Request.QueryString["TName"].ToString();
+                List<Question> isContain = context.Questions.Where(x => x.Tags.Contains(TagName)).ToList();
+                return View(isContain);
+            }
+        }
 
-            List<Question> isContain = context.Questions.Where(x => x.Tags.Contains(TagName)).ToList();
+        public ActionResult TagList()
+        {
+            using (CFContext context = new CFContext())
+            {
+                List<Tag> tags = context.Tags.ToList();
+                return View(tags);
+            }
+        }
 
-            return View(isContain);
-
-
+        [HttpPost]
+        public ActionResult SearchTag(string FilterByTag)
+        {
+            using (CFContext context = new CFContext())
+            {
+                List<Tag> tags = context.Tags.Where(x => x.QTags.Contains(FilterByTag)).ToList();
+                return View("TagList", tags);
+            }
         }
     }
 }

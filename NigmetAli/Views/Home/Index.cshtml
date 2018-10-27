@@ -5,11 +5,11 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+
 @model List<Question>
 
 <div class="container">
     <div class="row">
-        <div class="col-md-1"></div>
         <div class="col-md-2">
             <div class="row">
                 <div class="col-md-6">
@@ -17,12 +17,12 @@
                         @foreach (Question question in Model)
                         {
                             <li class="list-group-item">
-                                <p class="text-center list-group-item-info">Score</p>
+                                <a class="text-center text-info">Score</a>
                             </li>
                             <li class="list-group-item">
-                                @question.Score
+                                <p class="btn btn-warning">@question.Score</p>
                             </li>
-                            <br />
+                            <hr />
                         }
                     </ul>
                 </div>
@@ -30,8 +30,8 @@
                     <ul class="list-group">
                         @foreach (Question question in Model)
                         {
-                            <li class="list-group-item">
-                                <a href="#" class="text-center list-group-item-success">Answers</a>
+                            <li class="list-group-item text-center">
+                                <a class="text-info">Answers</a>
                             </li>
                             int sayac = 0;
                             <li class="list-group-item">
@@ -44,16 +44,16 @@
                                 }
                                 <p class="btn btn-danger">@sayac</p>
                             </li>
-                            <br />
+                            <hr />
                         }
                     </ul>
                 </div>
             </div>
         </div>
         <div class="col-md-9">
-            <div class="container">
+            <div class="container col-md-10">
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-10">
                         <ul class="list-group">
                             @foreach (Question question in Model)
                             {
@@ -61,23 +61,19 @@
                                     @question.Description
                                 </li>
                                 <li class="list-group-item">
-
                                     @{
                                         string[] words = question.Tags.Split(Convert.ToChar(" "));
                                         foreach (string word in words)
                                         {
                                             if (word != "")
                                             {
-                                                <form method="post" action="/QuAnCoTa/Tag" role="form" class="list-group-item">
-                                                    <input type="hidden" name="TagName" value="@word" />
-                                                    <button type="submit" class="btn btn-info">@word </button>
-                                                </form>
+                                                var url = HttpUtility.UrlEncode(word);
+                                                <a href="/QuAnCoTa/Tag?TName=@url" name="TagName" class="btn btn-info urlhash">@word</a>                                                
                                             }
                                         }
                                     }
-
                                 </li>
-                                <br />
+                                <hr />
                             }
                         </ul>
                     </div>
