@@ -8,19 +8,19 @@
 
 @model List<Question>
 
-<div class="container">
+<div class="container col-md-12">
     <div class="row">
-        <div class="col-md-2">
+        <div class="col-md-3">
             <div class="row">
                 <div class="col-md-6">
                     <ul class="list-group">
                         @foreach (Question question in Model)
                         {
-                            <li class="list-group-item">
+                            <li class="list-group-item text-center">
                                 <a class="text-center text-info">Score</a>
                             </li>
-                            <li class="list-group-item">
-                                <p class="btn btn-warning">@question.Score</p>
+                            <li class="list-group-item text-center">
+                                <p class="btn btn-success">@question.Score</p>
                             </li>
                             <hr />
                         }
@@ -34,7 +34,7 @@
                                 <a class="text-info">Answers</a>
                             </li>
                             int sayac = 0;
-                            <li class="list-group-item">
+                            <li class="list-group-item text-center">
                                 @foreach (Answer answer in ViewBag.Answers)
                                 {
                                     if (answer.QuestionId == question.Id)
@@ -50,33 +50,31 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-9">
+        <div class="col-md-9" style="padding-left:0px;">
             <div class="container col-md-10">
-                <div class="row">
-                    <div class="col-md-10">
-                        <ul class="list-group">
-                            @foreach (Question question in Model)
-                            {
-                                <li class="list-group-item">
-                                    @question.Description
-                                </li>
-                                <li class="list-group-item">
-                                    @{
-                                        string[] words = question.Tags.Split(Convert.ToChar(" "));
-                                        foreach (string word in words)
+                <div class="col-md-10">
+                    <ul class="list-group">
+                        @foreach (Question question in Model)
+                        {
+                            <li class="list-group-item">
+                                <a href="/QuAnCoTa/QuestionDetails?id=@question.Id" class="btn-link">@question.Description</a>
+                            </li>
+                            <li class="list-group-item">
+                                @{
+                                    string[] words = question.Tags.Split(Convert.ToChar(" "));
+                                    foreach (string word in words)
+                                    {
+                                        if (word != "")
                                         {
-                                            if (word != "")
-                                            {
-                                                var url = HttpUtility.UrlEncode(word);
-                                                <a href="/QuAnCoTa/Tag?TName=@url" name="TagName" class="btn btn-info urlhash">@word</a>                                                
-                                            }
+                                            var url = HttpUtility.UrlEncode(word);
+                                            <a href="/QuAnCoTa/Tag?TName=@url" name="TagName" class="btn btn-info urlhash">@word</a>
                                         }
                                     }
-                                </li>
-                                <hr />
-                            }
-                        </ul>
-                    </div>
+                                }
+                            </li>
+                            <hr />
+                        }
+                    </ul>
                 </div>
             </div>
         </div>

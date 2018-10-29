@@ -1,0 +1,130 @@
+﻿
+@{
+    ViewBag.Title = "Question Details";
+}
+@using NigmetAli.Classes
+
+@model Question
+
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+
+<link href="~/Scripts/NPCss/score.css" rel="stylesheet" />   @*For NumericUpDown*@
+
+<div class="row col-md-2 text-center">
+    <div class="input-group spinner col-md-1">
+        <div class="btn">
+            <button class="input-group plus">
+                <span class="img-rounded"><i class="glyphicon glyphicon-arrow-up"></i></span>
+            </button>
+        </div>
+        <div class="btn">
+            <span class="img-rounded"><input class="value" type="text" value="0" style="width:30px;text-align:center" readonly /></span>
+        </div>
+        <div class="btn">
+            <button class="input-group negative">
+                <span class="img-rounded"><i class="glyphicon glyphicon-arrow-down"></i></span>
+            </button>
+        </div>
+        @*<div class="input-group-btn-vertical">
+                <button class="btn btn-default" type="button"><i class="fa fa-plus"></i></button>
+                <button class="btn btn-default" type="button"><i class="fa fa-minus"></i></button>
+            </div>*@
+    </div>
+</div>
+<div class="row col-md-8">
+    <ul class="list-group">
+        <li class="list-group-item">
+            <a href="/QuAnCoTa/QuestionDetails?id=@Model.Id" class="btn-link h6">@Model.Description</a>
+        </li>
+        <li class="list-group-item">
+            <code spellcheck="true" style="display:block;white-space:pre-wrap">@Model.CodeArea</code>
+        </li>
+        @{
+            string[] words = Model.Tags.Split(Convert.ToChar(" "));
+            <li class="list-group-item">
+                @{
+                    foreach (string word in words)
+                    {
+                        if (word != "")
+                        {
+                            var url = HttpUtility.UrlEncode(word);
+                            <a href="/QuAnCoTa/Tag?TName=@url" name="TagName" class="btn btn-info urlhash">@word</a>
+                        }
+                    }
+                }
+            </li>
+        }
+    </ul>
+    <ul class="list-group text-right">
+        @if (ViewBag.Comments != null)
+        {
+            foreach (Comment comment in ViewBag.Comments)
+            {
+                <li class="list-group-item text-left h6">
+                    by - @comment.Member.userName
+                </li>
+                <li class="list-group-item h6">
+                    @comment.Description
+                </li>
+            }
+        }
+    </ul>
+    <div class="right">
+        <form class="form-group" action="/QuAnCoTa/AddQuestionComment?qId=@Model.Id" method="post" role="form">
+            <span><i class="glyphicon glyphicon-comment"></i></span>
+            <input class="text-primary" type="text" placeholder="Add a comment" name="NewComment" />
+            <button class="btn btn-success" style="height:28px;text-align:end;" type="submit">Submit</button>
+        </form>
+    </div>
+    <ul class="list-group">
+        <li class="list-group-item text-center h2">Answers</li>
+        @if (ViewBag.Answers != null)
+        {
+            foreach (Answer answer in ViewBag.Answers)
+            {
+                <li class="list-group-item text-right">
+                    by - @answer.Member.userName
+                </li>
+                <li class="list-group-item">
+                    @answer.Description
+                </li>
+            }
+        }
+    </ul>
+    <ul class="list-group">
+        <li class="list-group-item h3">
+            Your Answer
+        </li>
+    </ul>
+    <div>
+        <form class="form-group" action="/QuAnCoTa/AddAnswer?qId=@Model.Id" method="post" role="form">
+            <span><i class="glyphicon glyphicon-tasks"></i></span>
+            <input class="form-control" type="text" placeholder="Type Your Answer Description" name="NewAnswerDescription" />
+            <code spellcheck="true" style="white-space:pre-wrap"><textarea class="text-nowrap form-control" name="NewAnswerCode"></textarea></code>
+            <button class="btn btn-success ansbutton"  type="submit">Submit</button>
+        </form>
+    </div>
+</div>
+
+@*(function ($) {
+      $('.spinner .btn:first-of-type').on('click', function() {
+        $('.spinner input').val( parseInt($('.spinner input').val(), 10) + 1);
+      });
+      $('.spinner .btn:last-of-type').on('click', function() {
+        $('.spinner input').val( parseInt($('.spinner input').val(), 10) - 1);
+      });
+    })(jQuery);*@
+
+<script>
+    $(".plus").click(function () {
+        $(".value").val(parseInt($(".value").val(), 10) + 1);
+    });
+
+    $(".negative").click(function () {
+        $(".value").val(parseInt($(".value").val(), 10) - 1);
+    });
+
+    $(".ansbutton").click(function () {
+        location.reload();
+    });
+</script>

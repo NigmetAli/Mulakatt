@@ -18,7 +18,7 @@
             <div class="navbar-header navbar-nav">
                 <a href="/Home/Index" class="nav navbar-left"><h3><strong>NullPointer.Com</strong></h3></a>
             </div>
-            <div class="nav nav-divider col-md-4">
+            <div class="nav nav-divider col-md-3">
                 <form class="navbar-form navbar-left " id="search" action="/Home/Search">
                     <div class="form-group">
                         <input class="form-control" placeholder="Search" />
@@ -27,15 +27,17 @@
                         <button class="btn btn-success glyphicon glyphicon-search" type="submit"></button>
                     </div>
                 </form>
-                <div class="nav navbar-brand ask">
-                    <a href="/Member/AskQuestion" class="btn btn-info">Ask Question</a>
-                </div>
             </div>
-            <ul class="nav navbar-right navbar-brand">
-                <li class="list-group">
-                    <a href="/Member/SignUp" class="btn btn-info">Login/Signup</a>
-                </li>
-            </ul>
+            <div class="nav navbar-brand">
+                <a href="/Member/AskQuestion" class="btn btn-info">Ask Question</a>
+            </div>
+            <div class="navbar-btn navbar-right">
+                <ul class="list-group">
+                    <li class="btn">
+                        <a href="/Member/SignUp" class="btn btn-info">Login/Signup</a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
 
@@ -53,7 +55,7 @@
             <hr />
             <footer>
                 <div class="container-fluid">
-                    <div class="row">
+                    <div class="row col-md-10">
                         <div class="col-md-12 col-md-offset-4">
                             <p>&copy; @DateTime.Now.Year - Could Not Be Developed By Niğmet Ali 😓</p>
                         </div>

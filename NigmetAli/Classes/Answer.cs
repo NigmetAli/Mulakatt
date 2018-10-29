@@ -22,8 +22,8 @@ namespace NigmetAli.Classes
         public int QuestionId { get; set; }
         public bool IsTrue { get; set; }
 
-        public Member Member { get; set; }
-        public Question Question { get; set; }
+        public virtual Member Member { get; set; }
+        public virtual Question Question { get; set; }
 
 
         public virtual ICollection<Comment> Comments { get; set; }

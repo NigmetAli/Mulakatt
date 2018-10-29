@@ -9,7 +9,6 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-1"></div>
         <div class="col-md-2">
             <div class="row">
                 <div class="col-md-6">
@@ -51,14 +50,14 @@
             </div>
         </div>
         <div class="col-md-9">
-            <div class="container">
+            <div class="container col-md-10">
                 <div class="row">
                     <div class="col-md-12">
                         <ul class="list-group">
                             @foreach (Question question in Model)
                             {
                                 <li class="list-group-item">
-                                    @question.Description
+                                    <a href="/QuAnCoTa/QuestionDetails?id=@question.Id" class="btn-link">@question.Description</a>
                                 </li>
                                 <li class="list-group-item">
                                     @{

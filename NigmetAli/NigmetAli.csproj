@@ -126,6 +126,7 @@
     <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\NPCss\score.css" />
     <Content Include="Scripts\popper-utils.js" />
     <Content Include="Scripts\popper-utils.min.js" />
     <Content Include="Scripts\popper.js" />
@@ -190,6 +191,10 @@
     <Compile Include="Migrations\201810261029333_TagsTableAdded3.Designer.cs">
       <DependentUpon>201810261029333_TagsTableAdded3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201810291805532_AnswerTableCorrection.cs" />
+    <Compile Include="Migrations\201810291805532_AnswerTableCorrection.Designer.cs">
+      <DependentUpon>201810291805532_AnswerTableCorrection.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -215,6 +220,7 @@
     <Content Include="Views\Member\AskQuestion.cshtml" />
     <Content Include="Views\QuAnCoTa\Tag.cshtml" />
     <Content Include="Views\QuAnCoTa\TagList.cshtml" />
+    <Content Include="Views\QuAnCoTa\QuestionDetails.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -257,6 +263,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201810261029333_TagsTableAdded3.resx">
       <DependentUpon>201810261029333_TagsTableAdded3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810291805532_AnswerTableCorrection.resx">
+      <DependentUpon>201810291805532_AnswerTableCorrection.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
