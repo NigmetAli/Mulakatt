@@ -10,31 +10,27 @@
 
 <div class="container col-md-12">
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-2">
             <div class="row">
-                <div class="col-md-6">
-                    <ul class="list-group">
-                        @foreach (Question question in Model)
-                        {
-                            <li class="list-group-item text-center">
-                                <a class="text-center text-info">Score</a>
+                    @foreach (Question question in Model)
+                    {
+                <div class="col-md-5">
+                        <ul class="list-group">
+                            <li class="list-group-item" style="border:none">
+                                <a class="text-muted">Score</a>
                             </li>
-                            <li class="list-group-item text-center">
-                                <p class="btn btn-success">@question.Score</p>
+                            <li class="list-group-item" style="border:none;padding-left:80%;">
+                                <p class="text-muted">@question.Score</p>
                             </li>
-                            <hr />
-                        }
-                    </ul>
-                </div>
-                <div class="col-md-6">
-                    <ul class="list-group">
-                        @foreach (Question question in Model)
-                        {
-                            <li class="list-group-item text-center">
-                                <a class="text-info">Answers</a>
+                        </ul>
+                    </div>
+                    <div class="col-md-5">
+                        <ul class="list-group">
+                            <li class="list-group-item" style="border:none">
+                                <a class="text-muted">Answers</a>
                             </li>
-                            int sayac = 0;
-                            <li class="list-group-item text-center">
+                            @{int sayac = 0;}
+                            <li class="list-group-item" style="border:none;padding-left:100%;">
                                 @foreach (Answer answer in ViewBag.Answers)
                                 {
                                     if (answer.QuestionId == question.Id)
@@ -42,12 +38,12 @@
                                         sayac++;
                                     }
                                 }
-                                <p class="btn btn-danger">@sayac</p>
+                                <p class="text-muted">@sayac</p>
                             </li>
                             <hr />
-                        }
-                    </ul>
+                        </ul>
                 </div>
+                    }
             </div>
         </div>
         <div class="col-md-9" style="padding-left:0px;">
@@ -57,7 +53,7 @@
                         @foreach (Question question in Model)
                         {
                             <li class="list-group-item">
-                                <a href="/QuAnCoTa/QuestionDetails?id=@question.Id" class="btn-link">@question.Description</a>
+                                <a href="/QuAnCoTa/QuestionDetails?id=@question.Id" class="btn-link h3">@question.Description</a>
                             </li>
                             <li class="list-group-item">
                                 @{
@@ -67,7 +63,7 @@
                                         if (word != "")
                                         {
                                             var url = HttpUtility.UrlEncode(word);
-                                            <a href="/QuAnCoTa/Tag?TName=@url" name="TagName" class="btn btn-info urlhash">@word</a>
+                                            <a href="/QuAnCoTa/Tag?TName=@url" name="TagName" class="btn-link bg-success" style="border-style:solid;border:1px solid;border-radius:3px;color:cadetblue">@word</a>
                                         }
                                     }
                                 }

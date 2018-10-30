@@ -62,64 +62,81 @@ namespace NigmetAli.Controllers
             List<Answer> answers = context.Answers.Where(x => x.QuestionId == question.Id).ToList();
             ViewBag.Answers = answers;
 
+            List<Comment> allComments = context.Comments.ToList();
+            ViewBag.AllComments = allComments;
+
             return View(question);
         }
 
         [HttpPost]
-        public ActionResult AddQuestionComment(string NewComment)
+        public ActionResult QuestionDetails(string NewComment, string NewAnswerDescription, string NewAnswerCode,string NewAnswerComment)
         {
+
             string data = Request.QueryString["qId"];
             int qId = Convert.ToInt32(data);
 
             CFContext context = new CFContext();
+            Question question = new Question();
 
-            Comment comment = new Comment();
-            comment.QuestionId = qId;
-            comment.MemberId = 8;
-            comment.Description = NewComment;
-            comment.Score = 0;
+            if(NewComment != null && NewComment!="")
+            {
+                Comment comment = new Comment();
+                comment.QuestionId = qId;
+                comment.MemberId = 92;
+                comment.Description = NewComment;
+                comment.Score = 0;
 
-            context.Comments.Add(comment);
-            context.SaveChanges();
+                context.Comments.Add(comment);
+                context.SaveChanges();
+            }
+            else if (NewAnswerDescription != null)
+            {
+                Answer answer = new Answer();
+                answer.Description = NewAnswerDescription;
+                answer.CodeArea = (NewAnswerCode != "") ? NewAnswerCode : null;
+                answer.MemberId = 92;
+                answer.QuestionId = qId;
+                answer.Score = 0;
+                answer.IsTrue = false;
 
-            Question question;
+                context.Answers.Add(answer);
+                context.SaveChanges();
+            }
+            else if(NewAnswerComment != null && NewAnswerComment != "")
+            {
+                string aData = Request.QueryString["aId"];
+                int aId = Convert.ToInt32(aData);
+                Comment comment = new Comment();
+                comment.AnswerId = aId;
+                comment.MemberId = 92;
+                comment.Description = NewAnswerComment;
+                comment.Score = 0;
+
+                context.Comments.Add(comment);
+                context.SaveChanges();
+
+                //List<Comment> answerComments = context.Comments.Where(x => x.AnswerId == aId && x.QuestionId == qId).ToList();
+                //ViewBag.AnswerComments = answerComments;
+            }
+            
 
             question = context.Questions.FirstOrDefault(x => x.Id == qId);
-            List<Comment> dataComm = context.Comments.Where(x => x.QuestionId == question.Id).ToList();
 
-            ViewBag.Comments = dataComm;
+            List<Comment> comments = context.Comments.Where(x => x.QuestionId == question.Id).ToList();
+            ViewBag.Comments = comments;
 
-            return View("QuestionDetails",question);
+            List<Comment> allComments = context.Comments.ToList();
+            ViewBag.AllComments = allComments;
+
+            List<Answer> answers = context.Answers.Where(x => x.QuestionId == question.Id).ToList();
+            ViewBag.Answers = answers;
+
+            return View(question);
         }
-
-        [HttpPost]
-        public void AddAnswer(string NewAnswerDescription,string NewAnswerCode)
+        
+        public void AddScore()
         {
-            string data = Request.QueryString["qId"];
-            int qId = Convert.ToInt32(data);
 
-            CFContext context = new CFContext();
-
-            Answer answer = new Answer();
-            answer.Description = NewAnswerDescription;
-            answer.CodeArea = (NewAnswerCode != "") ? NewAnswerCode : null;
-            answer.MemberId = 8;
-            answer.QuestionId = qId;
-            answer.Score = 0;
-            answer.IsTrue = false;
-
-            context.Answers.Add(answer);
-            context.SaveChanges();
-
-            //Question question;
-            //question = context.Questions.FirstOrDefault(x => x.Id == qId);
-
-            //List<Comment> dataComm = context.Comments.Where(x => x.QuestionId == question.Id).ToList();
-
-            //List<Answer> answers = context.Answers.Where(x => x.QuestionId == question.Id).ToList();
-            //ViewBag.Answers = answers;
-
-            //return View("QuestionDetails", question);
         }
     }
 }

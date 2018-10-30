@@ -144,7 +144,7 @@ namespace NigmetAli.Controllers
         public ActionResult AskQuestion(Question question)
         {
             context = new CFContext();
-            question.MemberId = 8;
+            question.MemberId = 92;
             question.HasTrue = false;
             question.Score = 0;
             string[] words = question.Tags.Split(Convert.ToChar(" ")); //splitted tags
